@@ -9,6 +9,7 @@ import {ConsignmentsComponent} from './consignments/consignments.component';
 import {CreateshipmentComponent} from './create-shipment/createshipment.component';
 import {UploadShipmentComponent} from './upload-shipment/upload-shipment.component';
 import {AuthGuard} from '../shared/service/auth.guard';
+import { ListComponent } from './account/list/list.component';
 
 const adminRoutes: Routes = [
     {
@@ -47,6 +48,11 @@ const adminRoutes: Routes = [
         component: ConsignmentsComponent,
         // canActivate: [AuthGuard]
     },
+    {
+        path: 'account',
+        loadChildren: './account/account.module#AccountModule',
+        // canActivate: [AuthGuard]
+    },
     // {
     //     path: 'consignments',
     //     component: ConsignmentsComponent
@@ -63,10 +69,10 @@ export const RoutingModule: ModuleWithProviders = RouterModule.forChild(adminRou
         ClosedmanifestComponent,
         ConsignmentsComponent,
         CreateshipmentComponent,
-        UploadShipmentComponent
+        UploadShipmentComponent,
     ],
     imports: [
-        // RouterModule.forChild(routingModule),
+        RouterModule.forChild(adminRoutes),
         RoutingModule,
         SharedModule
     ],

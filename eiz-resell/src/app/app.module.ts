@@ -35,11 +35,6 @@ const appRoutes: Routes = [
     //     path: '',
     //     component: AppComponent
     // },
-    {
-        path: '',
-        redirectTo: 'shipping',
-        pathMatch: 'full'
-    },
 ];
 
 @NgModule({
