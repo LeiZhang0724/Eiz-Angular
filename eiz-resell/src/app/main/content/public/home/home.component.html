@@ -1,0 +1,81 @@
+<main role="main">
+    <section class="jumbotron">
+        <div class="container">
+            <h1 class="jumbotron-heading">EIZ Shipping</h1>
+            <p class="lead text-muted">Deliver your package with our competitive price.</p>
+            <p>
+                <button mat-flat-button>Learn more</button>
+            </p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Deliver a package</h3>
+                    <p>Detail introduction of EIZ Shipping and our advantages.</p>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Quick Quote</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="quote-form-input-field">
+                                    <input matInput placeholder="From">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="quote-form-input-field">
+                                    <input matInput placeholder="To">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field class="quote-form-input-field">
+                                    <input matInput placeholder="Quantity">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="quote-form-input-field">
+                                    <input matInput placeholder="Weight">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-form-field class="quote-form-input-field">
+                                    <input matInput placeholder="Length">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field class="quote-form-input-field">
+                                    <input matInput placeholder="Width">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field class="quote-form-input-field">
+                                    <input matInput placeholder="Height">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row pt-3 pb-3">
+                            <div class="col-6">
+                                <button mat-flat-button class="w-100" style="">Get a Quote</button>
+                            </div>
+                            <div class="col-6">
+                                <a [routerLink]="['quotes']" mat-flat-button class=w-100> Advanced Quote </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+<!--<footer class="footer">-->
+    <!--<div class="container">-->
+        <!--Powered by <a class="text-dark" href="https://eiz.com.au/">EIZ</a>-->
+    <!--</div>-->
+<!--</footer>-->

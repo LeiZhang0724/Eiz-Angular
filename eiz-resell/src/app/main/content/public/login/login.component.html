@@ -1,0 +1,40 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar matDialogTitle class="mat-accent" style="margin-bottom: 0;">
+        <mat-toolbar-row fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title dialog-title">Login</span>
+            <button mat-button class="mat-icon-button" [mat-dialog-close]="true" aria-label="Close dialog">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-dialog-content>
+        <form [formGroup]="loginForm" novalidate>
+            <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field fxFlex>
+                    <input id="username" placeholder="Email" formControlName="username" matInput required>
+                    <!--<div *ngIf="loginForm.controls['username'].invalid-->
+                        <!--&& (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">-->
+                        <mat-error *ngIf="loginForm.controls['username'].errors && loginForm.controls['username'].errors.required">
+                            Email is required
+                        </mat-error>
+                    <!--</div>-->
+                </mat-form-field>
+            </div>
+            <div class="mb-24" fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field fxFlex>
+                    <input id="password" type="password" placeholder="Password" formControlName="password" matInput required>
+                    <!--<div *ngIf="loginForm.controls['password'].invalid-->
+                        <!--&& (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">-->
+                        <mat-error *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].errors.required">
+                            Password is required
+                        </mat-error>
+                    <!--</div>-->
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-flat-button color="accent" class="w-100" type="button" (click)="login()">Login</button>
+    </mat-dialog-actions>
+</div>

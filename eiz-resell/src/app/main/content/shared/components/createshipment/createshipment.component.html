@@ -1,0 +1,409 @@
+<mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="">
+        <form>
+            <ng-template matStepLabel>Package&Location</ng-template>
+            <div class="row pt-3">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <h3>Locations</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="From">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-6">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="To">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <h3>Packages</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Please describe your Goods">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <label class="pt-3">
+                                        <i class="material-icons text-with-icon">delete</i>
+                                        Items 1
+                                    </label>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Quantity">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Weight">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Length">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Weight">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Height">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <label class="pt-3">
+                                        <i class="material-icons text-with-icon">delete</i>
+                                        Items 2
+                                    </label>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Quantity">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Weight">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Length">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Weight">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-2">
+                                    <mat-form-field class="quote-form-input-field">
+                                        <input matInput placeholder="Height">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-between pt-3">
+                    <button mat-flat-button>Add Item</button>
+                    <nav class="my-2 my-md-0">
+                        <button mat-flat-button matStepperNext type="button">Next</button>
+                    </nav>
+                </div>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="">
+        <form>
+            <ng-template matStepLabel>Select quote</ng-template>
+            <div class="row pt-3">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <h3>Quotes</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="position">
+                                    <th mat-header-cell *matHeaderCellDef fxFlex="33"> Courier </th>
+                                    <td mat-cell *matCellDef="let element" fxFlex="33">
+                                        <img src="assets/images/logos/img_courier_logo_Fastway.png"
+                                             style="width: 60px; height: 24px;">
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef fxFlex="33"> Price </th>
+                                    <td mat-cell *matCellDef="let element" fxFlex="33">
+                                        5.65
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="weight">
+                                    <th mat-header-cell *matHeaderCellDef fxFlex="33">  </th>
+                                    <td mat-cell *matCellDef="let element" fxFlex="33">
+                                        <button mat-stroked-button color="primary">Choose</button>
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-between pt-3">
+                    <button mat-flat-button matStepperPrevious type="button">Back</button>
+                    <nav class="my-2 my-md-0">
+                        <button mat-flat-button matStepperNext type="button">Next</button>
+                    </nav>
+                </div>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>PickUp&Destination</ng-template>
+        <div class="row pt-3">
+            <div class="col-lg-6">
+                <div class="row">
+                    <h3>Pick up From</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Contact Name">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Phone">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Email">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Company">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Address1">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Address2">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <h3>Deliver to</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Contact Name">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Phone">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Email">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Company">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Address1">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Address2">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Pick up Date</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <mat-form-field class="quote-form-input-field">
+                    <input matInput [matDatepicker]="picker" placeholder="Pick up Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-lg-6">
+                <mat-form-field class="quote-form-input-field">
+                    <mat-select placeholder="Pick up Time">
+                        <mat-option value="AM"> AM </mat-option>
+                        <mat-option value="PM"> PM </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Special Instruction</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Pick up instruction">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <mat-form-field class="quote-form-input-field">
+                            <input matInput placeholder="Delivery instruction">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-between pt-3">
+                <button mat-flat-button matStepperPrevious type="button">Back</button>
+                <nav class="my-2 my-md-0">
+                    <button mat-flat-button matStepperNext type="button">Next</button>
+                </nav>
+            </div>
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Payment</ng-template>
+        <div class="row pt-3">
+            <h3>Please confirm all Booking details then proceed to payment.</h3>
+            <div class="col-lg-12">
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-body text-left">
+                            <h5 class="card-title">Package Details</h5>
+                            <p class="card-text"><strong>Weight:</strong> 1 Kg</p>
+                            <p class="card-text"><strong>Quantity:</strong> 1 Kg</p>
+                            <p class="card-text"><strong>Dimensions:</strong> 12(cm) x 12(cm) x 12(cm)</p>
+                            <hr class="my-4">
+                            <p class="card-text"><strong>Weight:</strong> 1 Kg</p>
+                            <p class="card-text"><strong>Quantity:</strong> 1 Kg</p>
+                            <p class="card-text"><strong>Dimensions:</strong> 12(cm) x 12(cm) x 12(cm)</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body text-left">
+                            <h5 class="card-title">Quote</h5>
+                            <p class="card-text"><strong>Courier:</strong> <img src="assets/images/logos/img_courier_logo_Fastway.png"
+                                                                                style="width: 60px; height: 24px;"></p>
+                            <p class="card-text"><strong>Price:</strong> 5.66</p>
+                            <p class="card-text"><strong>Pickup Date:</strong> 12th Sep. AM</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body text-left">
+                            <h5 class="card-title">Address Details</h5>
+                            <p class="card-text"><strong>From:</strong> U2/23 Margaret St, Clayton, VIC, 3168</p>
+                            <p class="card-text"><strong>To:</strong> 79 Fulton St, Clayton, VIC, 3168</p>
+                            <p class="card-text mb-1"><strong>Special instruction:</strong></p>
+                            <span class="card-text">Test instruction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <h3>Additional Information</h3>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body" style="text-align: justify;">
+                        <ul>
+                            <li>Term 1: Test term 1</li>
+                            <li>Term 2: Test term 2</li>
+                            <li>Term 3: Test term 3</li>
+                            <li>Term 4: Test term 4</li>
+                            <li>Term 5: Test term 5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body" style="text-align: justify;">
+                        <mat-checkbox>I have read, understood & agree to the Terms & Conditions.</mat-checkbox>
+                        <mat-checkbox>I understand that the consignment note supplied via email after booking, must be attached to the item/s as instructed before pickup.</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <h3>Make Payment</h3>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body" style="text-align: justify;">
+                        <mat-radio-group class="example-radio-group">
+                            <mat-radio-button class="example-radio-button">
+                                <img src="assets/images/logos/img_payment_logo_stripe.png" width="80" height="60" />
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-between pt-3">
+                <button mat-flat-button matStepperPrevious type="button">Back</button>
+                <nav class="my-2 my-md-0">
+                    <button mat-flat-button type="button">Submit</button>
+                </nav>
+            </div>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

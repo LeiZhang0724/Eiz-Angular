@@ -1,0 +1,14 @@
+.quote-form-input-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    padding: 0 15px;
+}
+
+.text-with-icon {
+    position: relative;
+    top: 5px;
+}
