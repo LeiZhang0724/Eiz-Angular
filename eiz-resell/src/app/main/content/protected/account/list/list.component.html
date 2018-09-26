@@ -5,86 +5,47 @@
               class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Account List</h1>
       </div>
-      <div class="row  pb-3">
-        <div>
+      <div class="row  pb-3" style="display: inline-flex">
+        <div class="pl-3">
           <button mat-flat-button type="button">Create New Account</button>
         </div>
       </div>
 
-      <div class="row  pb-3">
-        <div class="row w-100 file-upload" style="display: inline-flex">
-          <div class="col-md-6 pl-3" style="display: inline-flex">
-            <button mat-flat-button type="button">Create New Account</button>
-          </div>
-        </div>
-      </div>
-
       <div class="mat-elevation-z8">
-        <div fxLayout="row" class="table-header d-inline p-3 text-white">
-          <button class="mr-3" mat-raised-button color="primary"
-                  matBadge="{{selection.selected.length}}" matBadgePosition="before" matBadgeColor="accent">
-            Print Manifest
-          </button>
-        </div>
         <table mat-table [dataSource]="dataSource" class="">
 
           <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef fxFlex="15">
+            <th mat-header-cell *matHeaderCellDef fxFlex="10">
               <mat-checkbox (change)="$event ? masterToggle() : null"
                             [checked]="selection.hasValue() && isAllSelected()"
                             [indeterminate]="selection.hasValue() && !isAllSelected()">
               </mat-checkbox>
             </th>
-            <td mat-cell *matCellDef="let row" fxFlex="15">
+            <td mat-cell *matCellDef="let row" fxFlex="10">
               <mat-checkbox (click)="$event.stopPropagation()"
                             (change)="$event ? selection.toggle(row) : null"
                             [checked]="selection.isSelected(row)">
               </mat-checkbox>
             </td>
           </ng-container>
-
-          <ng-container matColumnDef="courier">
-            <th mat-header-cell *matHeaderCellDef fxFlex="20" class="quote-table-cell"> Courier</th>
-            <td mat-cell *matCellDef="let element" fxFlex="20" class="quote-table-cell">
-              <img src="assets/images/logos/img_courier_logo_Fastway.png"
-                   style="width: 60px; height: 24px;">
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="createdate">
-            <th mat-header-cell *matHeaderCellDef fxFlex="25" class="quote-table-cell"> Create Date</th>
+          <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef fxFlex="25" class="quote-table-cell"> ID</th>
             <td mat-cell *matCellDef="let element" fxFlex="25" class="quote-table-cell">
-              <p class="text-truncate" style="margin: 5px 0;">{{ element.createdate | date:'dd/MM/yyyy' }}</p>
-              <p class="text-truncate" style="margin: 5px 0;">{{ element.createdate | date:'mediumTime' }}</p>
+              {{element.id}}
             </td>
           </ng-container>
 
-          <ng-container matColumnDef="consignmentnum">
-            <th mat-header-cell *matHeaderCellDef fxFlex="20" class="quote-table-cell"> Consignment number</th>
-            <td mat-cell *matCellDef="let element" fxFlex="20" class="quote-table-cell">
-              {{element.consignmentnum}}
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef fxFlex="25" class="quote-table-cell"> Email</th>
+            <td mat-cell *matCellDef="let element" fxFlex="25" class="quote-table-cell">
+              {{element.email}}
             </td>
           </ng-container>
-
           <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef fxFlex="20" class="quote-table-cell"> Actions</th>
-            <td mat-cell *matCellDef="let element" fxFlex="20" class="quote-table-cell">
+            <th mat-header-cell *matHeaderCellDef fxFlex="25" class="quote-table-cell"> Actions</th>
+            <td mat-cell *matCellDef="let element" fxFlex="25" class="quote-table-cell">
               <div class="my-2 my-md-0 mr-md-3">
-                <a matTooltip="View consignments" class="pr-3">
-                  <svg class="feather feather-list sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
-                       width="24"
-                       height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
-                       data-reactid="701">
-                    <line x1="8" y1="6" x2="21" y2="6"></line>
-                    <line x1="8" y1="12" x2="21" y2="12"></line>
-                    <line x1="8" y1="18" x2="21" y2="18"></line>
-                    <line x1="3" y1="6" x2="3" y2="6"></line>
-                    <line x1="3" y1="12" x2="3" y2="12"></line>
-                    <line x1="3" y1="18" x2="3" y2="18"></line>
-                  </svg>
-                </a>
-                <a matTooltip="Print Summary" class="pr-3">
+                <a matTooltip="Print Label" class="pr-3">
                   <svg class="feather feather-printer sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
@@ -95,6 +56,18 @@
                     <rect x="6" y="14" width="12" height="8"></rect>
                   </svg>
                 </a>
+                <a matTooltip="Delete Manifest" class="pr-3">
+                  <svg class="feather feather-trash-2 sc-dnqmqq jxshSx" xmlns="http://www.w3.org/2000/svg"
+                       width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                       data-reactid="1171">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path
+                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    <line x1="10" y1="11" x2="10" y2="17"></line>
+                    <line x1="14" y1="11" x2="14" y2="17"></line>
+                  </svg>
+                </a>
               </div>
             </td>
           </ng-container>
@@ -102,7 +75,6 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
     </main>
   </div>
