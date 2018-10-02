@@ -7,6 +7,7 @@ import {CreateShipmentComponent} from './components/createshipment/createshipmen
 import {RedirectComponent} from './components/redirect/redirect.component';
 import {RouterModule, Routes} from '@angular/router';
 import {VerifyComponent} from './components/verify/verify.component';
+import {AccountService} from './service/account.service';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import {VerifyComponent} from './components/verify/verify.component';
         MaterialModule,
         FlexLayoutModule
     ],
-    providers: [],
+    providers: [
+    ],
     exports: [
         CommonModule,
         FormsModule,

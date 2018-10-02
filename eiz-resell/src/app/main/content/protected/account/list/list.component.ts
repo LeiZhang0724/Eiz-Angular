@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
+import {AccountService} from '../../../shared/service/account.service';
 
 @Component({
   selector: 'app-list',
@@ -11,14 +12,20 @@ export class ListComponent implements OnInit {
     @ViewChild('fileName') fileName: ElementRef;
 
     displayedColumns: string[] = ['id', 'index', 'email', 'action'];
-    dataSource = ELEMENT_DATA;
+    dataSource;
+
 
     selection = new SelectionModel<PeriodicElement>(true, []);
 
-    constructor() {
+    constructor(private data: AccountService) {
     }
 
     ngOnInit() {
+        this.dataSource = ELEMENT_DATA;
+    }
+
+    changeAccount(account) {
+        this.data.changeAccount(account);
     }
 }
 
