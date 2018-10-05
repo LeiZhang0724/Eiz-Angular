@@ -3,8 +3,8 @@ import {SharedModule} from '../../shared/shared.module';
 import {RouterModule, Routes} from '@angular/router';
 import {ListComponent} from './list/list.component';
 import { ViewComponent } from './view/view.component';
-import {DataService} from '../../shared/service/data.service';
 import {AccountService} from '../../shared/service/account.service';
+import { EditComponent } from './edit/edit.component';
 
 const accountRoutes: Routes = [
     {
@@ -14,7 +14,11 @@ const accountRoutes: Routes = [
     {
         path: 'view/:id',
         component: ViewComponent,
-    }
+    },
+    {
+     path: 'edit/:id',
+         component: EditComponent,
+    },
 ];
 
 export const RoutingModule: ModuleWithProviders = RouterModule.forChild(accountRoutes);
@@ -23,6 +27,7 @@ export const RoutingModule: ModuleWithProviders = RouterModule.forChild(accountR
     declarations: [
         ListComponent,
         ViewComponent,
+        EditComponent,
     ],
     imports: [
         RouterModule.forChild(accountRoutes),

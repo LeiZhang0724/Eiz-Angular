@@ -71,7 +71,7 @@
 
                 <a>
                   <mat-icon matTooltip="View" [routerLink]="'../view/' + element.id" (click)="changeAccount(element)" >remove_red_eye</mat-icon>
-                  <mat-icon matTooltip="Edit">edit</mat-icon>
+                  <mat-icon matTooltip="Edit" (click)="edit(element.id)">edit</mat-icon>
                   <mat-icon matTooltip="Topup">monetization_on</mat-icon>
                 </a>
               </div>

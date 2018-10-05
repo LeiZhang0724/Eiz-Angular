@@ -1,6 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {SelectionModel} from '@angular/cdk/collections';
 import {AccountService} from '../../../shared/service/account.service';
+import {EditComponent} from '../edit/edit.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-list',
@@ -17,7 +19,12 @@ export class ListComponent implements OnInit {
 
     selection = new SelectionModel<PeriodicElement>(true, []);
 
-    constructor(private data: AccountService) {
+    dialogRef: any;
+
+    constructor(
+        private data: AccountService,
+        public dialog: MatDialog,
+    ) {
     }
 
     ngOnInit() {
@@ -26,6 +33,15 @@ export class ListComponent implements OnInit {
 
     changeAccount(account) {
         this.data.changeAccount(account);
+    }
+
+
+    edit(id) {
+        this.dialogRef = this.dialog.open(EditComponent, {
+            panelClass: 'user-edit-dialog',
+            data: this.dataSource[id - 1],
+        });
+
     }
 }
 
