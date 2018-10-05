@@ -13,12 +13,13 @@ export class ListComponent implements OnInit {
     @ViewChild('chooseFile') chooseFile: ElementRef;
     @ViewChild('fileName') fileName: ElementRef;
 
+    // list table
     displayedColumns: string[] = ['id', 'index', 'email', 'action'];
     dataSource;
 
-
     selection = new SelectionModel<PeriodicElement>(true, []);
 
+    // dialog define
     dialogRef: any;
 
     constructor(
@@ -28,6 +29,7 @@ export class ListComponent implements OnInit {
     }
 
     ngOnInit() {
+        // initial data into list data source
         this.dataSource = ELEMENT_DATA;
     }
 
@@ -35,21 +37,24 @@ export class ListComponent implements OnInit {
         this.data.changeAccount(account);
     }
 
-
+    // edit component by dialog
     edit(id) {
         this.dialogRef = this.dialog.open(EditComponent, {
             panelClass: 'user-edit-dialog',
+            // transfer data by dataSource, index from 1
             data: this.dataSource[id - 1],
         });
 
     }
 }
 
+// data structure
 export interface PeriodicElement {
     id: number;
     email: string;
 }
 
+// data
 const ELEMENT_DATA: PeriodicElement[] = [
     {id: 1, email: '123@gmail.com'},
     {id: 2, email: '123@gmail.com'},
