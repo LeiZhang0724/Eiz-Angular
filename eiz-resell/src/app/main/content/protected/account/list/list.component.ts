@@ -3,6 +3,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 import {AccountService} from '../../../shared/service/account.service';
 import {EditComponent} from '../edit/edit.component';
 import {MatDialog} from '@angular/material';
+import {TopupComponent} from '../topup/topup.component';
 
 @Component({
   selector: 'app-list',
@@ -33,14 +34,25 @@ export class ListComponent implements OnInit {
         this.dataSource = ELEMENT_DATA;
     }
 
-    changeAccount(account) {
+    viewAccount(account) {
         this.data.changeAccount(account);
     }
+
 
     // edit component by dialog
     edit(id) {
         this.dialogRef = this.dialog.open(EditComponent, {
-            panelClass: 'user-edit-dialog',
+            panelClass: 'app-edit',
+            // transfer data by dataSource, index from 1
+            data: this.dataSource[id - 1],
+        });
+
+    }
+
+    // top up component by dialog
+    topUp(id) {
+        this.dialogRef = this.dialog.open(TopupComponent, {
+            panelClass: 'app-topup',
             // transfer data by dataSource, index from 1
             data: this.dataSource[id - 1],
         });

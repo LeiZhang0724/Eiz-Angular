@@ -5,6 +5,7 @@ import {ListComponent} from './list/list.component';
 import { ViewComponent } from './view/view.component';
 import {AccountService} from '../../shared/service/account.service';
 import { EditComponent } from './edit/edit.component';
+import { TopupComponent } from './topup/topup.component';
 
 const accountRoutes: Routes = [
     {
@@ -16,9 +17,13 @@ const accountRoutes: Routes = [
         component: ViewComponent,
     },
     {
-     path: 'edit/:id',
-         component: EditComponent,
+        path: 'edit',
+        component: EditComponent,
     },
+    {
+        path: 'topup/:id',
+        component: TopupComponent,
+    }
 ];
 
 export const RoutingModule: ModuleWithProviders = RouterModule.forChild(accountRoutes);
@@ -28,6 +33,7 @@ export const RoutingModule: ModuleWithProviders = RouterModule.forChild(accountR
         ListComponent,
         ViewComponent,
         EditComponent,
+        TopupComponent,
     ],
     imports: [
         RouterModule.forChild(accountRoutes),
