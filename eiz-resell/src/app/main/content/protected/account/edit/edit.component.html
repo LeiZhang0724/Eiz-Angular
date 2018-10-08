@@ -2,45 +2,36 @@
   <div class="container-fluid">
       <main role="main">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <div class="row">
-            <div class="col-9">
+            <div>
               <h1 class="h2">Account Edit</h1>
             </div>
-            <div class="col-3">
+            <div class="flex-row-reverse">
               <button mat-button class="mat-icon-button" (click)="close()" aria-label="Close dialog">
                 <mat-icon>close</mat-icon>
               </button>
             </div>
-          </div>
         </div>
         <div class="card">
           <div class="card-body">
-            {{account_id}}
-            {{account_email}}
+              <div>
+                  <form name="editForm" [formGroup]="editForm" novalidate>
+                      <div class="row">
+                          <mat-form-field class="col-3">
+                              <input matInput placeholder="ID" formControlName="account_id" required [(ngModel)]="account_id">
+                          </mat-form-field>
+                          <mat-form-field class="col-9">
+                              <input matInput placeholder="email" formControlName="account_email" required [(ngModel)]="account_email">
+                          </mat-form-field>
+                      </div>
+                  </form>
+              </div>
           </div>
-          <!--<mat-dialog-content>-->
-            <!--<mat-form-field>-->
-              <!--<input matInput-->
-                     <!--placeholder="Email"-->
-                     <!--formControlName="Email">-->
-            <!--</mat-form-field>-->
-            <!--<mat-form-field>-->
-              <!--<input matInput-->
-                     <!--placeholder="Address"-->
-                     <!--formControlName="Address">-->
-            <!--</mat-form-field>-->
-            <!--<mat-form-field>-->
-              <!--<input matInput-->
-                     <!--placeholder="ABN"-->
-                     <!--formControlName="ABN">-->
-            <!--</mat-form-field>-->
-          <!--</mat-dialog-content>-->
           <div class="card-footer">
-            <mat-dialog-actions>
-              <button class="mat-raised-button mat-primary">Close</button>
-              <button class="mat-raised-button mat-primary">Save</button>
-            </mat-dialog-actions>
-            </div>
+              <div class="row">
+                  <button class="mat-raised-button mat-primary m-3">Close</button>
+                  <button class="mat-raised-button mat-primary m-3">Save</button>
+              </div>
+          </div>
         </div>
       </main>
   </div>
