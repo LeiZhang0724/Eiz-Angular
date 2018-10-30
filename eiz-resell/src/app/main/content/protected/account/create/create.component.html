@@ -1,0 +1,111 @@
+<div id="admin-content" class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Create New Account</h1>
+        <button mat-icon-button [routerLink]="'/admin/account/list'">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+
+      <div class="mat-elevation-z8">
+        <mat-horizontal-stepper #stepper>
+        <!--<mat-horizontal-stepper [linear]="isLinear" #stepper>-->
+          <mat-step>
+            <form [formGroup]="accountFormGroup">
+              <ng-template matStepLabel>Insert Details</ng-template>
+              <div class="row">
+                <mat-form-field class="col-4">
+                  <input matInput placeholder="Last name, First name" formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field class="col-6">
+                  <input matInput placeholder="Company Name" formControlName="companyName" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-4">
+                  <input matInput placeholder="Phone" formControlName="phone" required>
+                </mat-form-field>
+                <mat-form-field class="col-6">
+                  <input matInput placeholder="Email" formControlName="email">
+                  <!--<mat-error *ngIf="email.errors.pattern">-->
+                    <!--Please enter <strong>valid email</strong>-->
+                  <!--</mat-error>-->
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-5">
+                  <input matInput placeholder="ABN" formControlName="ABN" required>
+                </mat-form-field>
+                <mat-form-field class="col-5">
+                  <input matInput placeholder="Status" formControlName="status" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-5">
+                  <input matInput placeholder="Company Address1" formControlName="companyAddress1" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-5">
+                  <input matInput placeholder="Company Address2">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-3">
+                  <input matInput placeholder="Company suburb" formControlName="suburb" required>
+                  <mat-icon matSuffix matTooltip="Type at least 3 characters to search related postcode and suburb.">search</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="col-2">
+                  <mat-select placeholder="Company state" formControlName="state" required>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field class="col-2">
+                  <input matInput placeholder="Postcode" formControlName="postcode" required>
+                  <mat-icon matSuffix matTooltip="type at least 3 characters to search related postcode and suburb.">search</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="col-3">
+                  <mat-select placeholder="Company country" formControlName="country" required>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <form [formGroup]="subscriptionFormGroup">
+              <ng-template matStepLabel>Set up Subscription</ng-template>
+              <div class="row">
+                <mat-form-field class="col-6">
+                  <input matInput placeholder="Subscription" formControlName="subscription" required>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="col-6">
+                  <input matInput placeholder="API Key" formControlName="API" required>
+                </mat-form-field>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            You are now done.
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button>Save</button>
+              <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+
+      </div>
+    </main>
+  </div>
+</div>
+

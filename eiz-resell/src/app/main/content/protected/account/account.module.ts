@@ -6,6 +6,7 @@ import { ViewComponent } from './view/view.component';
 import {AccountService} from '../../shared/service/account.service';
 import { EditComponent } from './edit/edit.component';
 import { TopupComponent } from './topup/topup.component';
+import { CreateComponent } from './create/create.component';
 
 const accountRoutes: Routes = [
     {
@@ -23,6 +24,10 @@ const accountRoutes: Routes = [
     {
         path: 'topup/:id',
         component: TopupComponent,
+    },
+    {
+        path: 'create',
+        component: CreateComponent,
     }
 ];
 
@@ -34,6 +39,7 @@ export const RoutingModule: ModuleWithProviders = RouterModule.forChild(accountR
         ViewComponent,
         EditComponent,
         TopupComponent,
+        CreateComponent,
     ],
     imports: [
         RouterModule.forChild(accountRoutes),
